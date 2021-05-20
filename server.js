@@ -1,7 +1,9 @@
 const express = require('express');
 const fs = require('fs')
 const path = require('path')
-// body parser is to address the data in object form
+
+const Appendfile = fs.appendFile;
+
 // const MongoClient = require('mongodb').MongoClient;
 const app = express();
 const dotenv = require('dotenv');
@@ -41,10 +43,9 @@ app.get('/', function (req, res) {
 //   });
 // });
 
-app.post('/todo', (req,res)=>{
-  fs.appendfile('./tasks.json',(err)=> {
+app.post('/todo', (req,res, next)=>{
+  Appendfile('./tasks.txt',`testing.... /t ${new Date(Date.now()).toUTCString()}/n`,(err)=> {
     if(err) res.json({error:'400', message:'Something wrong with adding new Task'});
-    
-    res.json({message: 'New task added!'})
+    res.status(200).json({message: 'New task added!'})
   })
 })
