@@ -44,6 +44,7 @@ app.get('/', function (req, res) {
 app.post('/todo', (req,res)=>{
   fs.appendfile('./tasks.json',(err)=> {
     if(err) res.json({error:'400', message:'Something wrong with adding new Task'});
+    
     res.json({message: 'New task added!'})
   })
 })
