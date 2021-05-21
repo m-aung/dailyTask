@@ -31,7 +31,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // app.get(path, callback);
 app.get('/', function (req, res) {
-  // res.send('This is a GET');
   res.sendFile(__dirname + '/index.html');
 });
 
