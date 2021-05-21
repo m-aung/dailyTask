@@ -1,10 +1,15 @@
 // DOM minipulation
 
-const Task = () => {
-    
+const addTask = (task, priority) => {
+    // post new task
+
+
 }
 
-document.querySelector('#buttons').addEventListener('click', (e) => {
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('#buttons').addEventListener('submit', (e) => {
     e.preventDefault();
-    addTask();
+    alert(e.target.value)
+  })
 })
